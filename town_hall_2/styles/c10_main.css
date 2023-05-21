@@ -14,9 +14,26 @@ body {
     margin: 0 auto;
     border: 3px solid #931420;
     background-color: #fffded;
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: auto auto auto auto;
+	grid-template-areas: 
+		"head head head head"
+		"navi navi navi navi"
+		"main main main main"
+		"foot foot foot foot";
 }
 a:focus, a:hover {
 	font-style: italic;
+}
+main { 
+	display: grid;
+	grid-area: main;
+	grid-template-columns: 30% 67.5%;
+	grid-template-rows: auto;
+	column-gap: 2.5%;
+	grid-template-areas:
+		"side sect";
 }
 /* the styles for the header */
 header {
@@ -30,6 +47,7 @@ header {
 	    30deg, #f6bb73 0%, #f6bb73 30%, white 50%, #f6bb73 80%, #f6bb73 100%);
 	background-image: linear-gradient(
 	    30deg, #f6bb73 0%, #f6bb73 30%, white 50%, #f6bb73 80%, #f6bb73 100%);
+	grid-area: head;
 }
 header h2 {
 	font-size: 175%;
@@ -51,6 +69,13 @@ header img {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
+	grid-area: navi;
+	display: grid;
+	grid-template-rows: auto;
+	grid-template-columns: 20% 20% 20% 20% 20%;
+	grid-template-areas: 
+		"nav2 nav2 nav2 nav2 nav2";
+	justify-content: center;
 }
 #nav_menu ul li a {
     display: block;
@@ -60,6 +85,7 @@ header img {
     background-color: #800000;
     color: white;
     font-weight: bold;
+	grid-area: nav2;
 }
 #nav_menu a.current {
 	color: yellow;
@@ -67,7 +93,9 @@ header img {
 
 /* the styles for the section */
 section {
-    padding: 0 2.5% 20px 2.5%;
+    padding: 0 2.5% 20px 0;
+	grid-row: 1 / 2;
+	grid-column: 2 / 3;
 }
 section h1 {
 	font-size: 150%;
@@ -118,6 +146,8 @@ article img {
 /* the styles for the aside */
 aside {
     padding: 0 0 20px 2.5%;
+	grid-row: 1 / 2;
+	grid-column: 1 / 2;
 }
 aside h2 {
 	color: #800000;
@@ -135,6 +165,7 @@ aside img {
 /* the styles for the footer */
 footer {
 	background-color: #931420;
+	grid-area: foot;
 }
 footer p {
 	text-align: center;
@@ -159,15 +190,30 @@ footer p {
 
 @media only screen and (max-width: 648px) {
 	header img { float: none; }
-	header { text-align: center; }
+	header { 
+		text-align: center; 
+		grid-template-columns: auto;
+		grid-template-rows: auto auto auto;
+		grid-gap: .5em;
+		padding: 2% 0;
+	}
+	main {
+		grid-template-columns: 100%;
+		grid-template-rows: auto auto;
+	}
 	section {
 		float: none;
 		width: 95%;
+		grid-row: 1 / 2;
+		grid-column: 1 / 2;
+		margin: 0 2.5%;
 	}
 	aside {
 		float: none;
-		padding-right: 2.5%;
+		padding: 0 2.5%;
 		width: 95%;
+		grid-row: 2 / 3;
+		grid-column: 1 / 2;
 	}
 	article img { max-width: 30%; }
 	#speakers {

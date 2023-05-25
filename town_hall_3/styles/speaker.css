@@ -3,6 +3,10 @@
 	margin: 0;
 	padding: 0;
 }
+@font-face {
+	font-family: Harngton;
+	src: url(HARNGTON.TTF);
+}
 html {
 	background-color: white;
 }
@@ -33,6 +37,7 @@ header {
 header h2 {
 	font-size: 175%;
 	color: #800000;
+	font-family: Harngton;
 }
 header h3 {
 	font-size: 130%;
@@ -110,6 +115,14 @@ section ul {
 }
 section li {
 	padding-bottom: .35em;
+}
+figure {
+	float: right;
+}
+figcaption {
+	display: block;
+	border-bottom: 1px black solid;
+	margin: 0 0 0 1em;
 }
 
 /* the styles for the article */
